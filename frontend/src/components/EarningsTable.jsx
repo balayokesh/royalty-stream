@@ -1,10 +1,7 @@
 import React from "react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
 
-const mockData = [
-  { title: "My Song", views: 12000, revenue: 45.20 },
-  { title: "Behind the Scenes", views: 8000, revenue: 30.10 },
-];
+import mockData from "../data/mockData.json";
 
 function EarningsTable() {
   return (
@@ -18,7 +15,7 @@ function EarningsTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {mockData.map((row, idx) => (
+          {mockData.data.map((row, idx) => (
             <TableRow key={idx}>
               <TableCell>{row.title}</TableCell>
               <TableCell align="right">{row.views}</TableCell>
