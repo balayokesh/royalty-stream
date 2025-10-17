@@ -1,17 +1,15 @@
-import React from 'react';
 import {
   Container,
   Typography,
   Grid,
   Card,
   CardActionArea,
-  CardContent,
   Box,
   IconButton,
 } from '@mui/material';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 const cardStyles = [
   { backgroundColor: '#FFF3F3' }, // pale red
@@ -83,8 +81,8 @@ function Home() {
               elevation={6}
             >
               <CardActionArea
-                component="a"
-                href={platform.url}
+                component={Link}
+                to={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ p: 3, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}

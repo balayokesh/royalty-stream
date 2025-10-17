@@ -40,7 +40,7 @@ This prototype demonstrates a real-time dashboard that displays earnings per str
 1. Clone the repository: `git clone https://github.com/balayokesh/royalty-stream.git`
 2. Install dependencies: `cd royalty-stream && npm install`
 3. Start the development server: `npm run dev`
-4. Access the dashboard at `http://localhost:5173`
+4. Access the dashboard at `http://localhost:5173/royalty-stream`
 
 ## License
 MIT License
