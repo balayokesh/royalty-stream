@@ -19,7 +19,7 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
 });
 const numberFormatter = new Intl.NumberFormat("en-US");
 
-function DashboardHeader() {
+function DashboardHeader(props) {
   return (
     <AppBar
       id="dashboard-header"

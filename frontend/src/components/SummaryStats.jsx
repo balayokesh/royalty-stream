@@ -2,9 +2,9 @@ import React from "react";
 import { Card, CardContent, Typography, Grid } from "@mui/material";
 import mockData from "../data/mockData.json";
 
-function SummaryStats() {
-  const totalViews = mockData.data.reduce((sum, item) => sum + item.views, 0);
-  const totalRevenue = mockData.data.reduce((sum, item) => sum + item.revenue, 0);
+function SummaryStats(props) {
+  const totalViews = props.youtubeData.reduce((sum, item) => sum + item.views, 0);
+  const totalRevenue = props.youtubeData.reduce((sum, item) => sum + item.revenue, 0);
   const avgRevenuePerView = totalRevenue / totalViews;
 
   return (

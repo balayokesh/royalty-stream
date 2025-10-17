@@ -1,9 +1,6 @@
-import React from "react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
 
-import mockData from "../data/mockData.json";
-
-function EarningsTable() {
+function EarningsTable(props) {
   return (
     <TableContainer component={Paper}>
       <Table size="small">
@@ -15,7 +12,7 @@ function EarningsTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {mockData.data.map((row, idx) => (
+          {props.youtubeData.map((row, idx) => (
             <TableRow key={idx}>
               <TableCell>{row.title}</TableCell>
               <TableCell align="right">{row.views}</TableCell>
