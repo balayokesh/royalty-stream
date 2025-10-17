@@ -6,6 +6,8 @@ function SignIn({ onLogin }) {
     onSuccess: tokenResponse => {
       console.log("Access Token: ", tokenResponse.access_token);
       // Use tokenResponse.access_token for API calls instead of credentialResponse.credential
+      localStorage.setItem('accessToken', tokenResponse.access_token);
+      // setAccessToken(tokenResponse.access_token);
       onLogin(tokenResponse.access_token);
     },
     onError: () => alert("Login Failed"),

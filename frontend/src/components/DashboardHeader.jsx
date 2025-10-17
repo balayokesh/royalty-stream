@@ -44,6 +44,7 @@ function DashboardHeader(props) {
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Avatar alt={username} src={profilePic} />
           <Typography variant="subtitle1">Welcome, {username}</Typography>
+          <button onClick={() => { console.log("called"); localStorage.removeItem('accessToken'); props.setAccessToken(null); }}>Logout</button>
         </Box>
       </Toolbar>
     </AppBar>

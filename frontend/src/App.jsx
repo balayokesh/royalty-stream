@@ -5,13 +5,23 @@ import DashboardHeader from './components/DashboardHeader'
 import SignIn from './components/SignIn';
 import { useState } from 'react';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
   const [youtubeData, setYoutubeData] = useState([]);
 
+  useEffect(() => {
+    const savedToken = localStorage.getItem('accessToken');
+    if (savedToken) setAccessToken(savedToken);
+    if (youtubeData.length === 0 && savedToken) {
+      fetchYouTubeVideos(savedToken);
+    }
+  }, []);
+
   const fetchYouTubeVideos = async (access_token) => {
     try {
+      console.log(accessToken);
       // Step 1: Get uploads playlist ID from channel details
       const channelResponse = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true`,
@@ -74,13 +84,13 @@ function App() {
 
   return (
     <div id='main'>
-      <DashboardHeader />
+      <DashboardHeader setAccessToken={setAccessToken} />
       <div id="App">
         <SummaryStats youtubeData={youtubeData} />
         <EarningsTable youtubeData={youtubeData} />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
