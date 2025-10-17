@@ -6,6 +6,7 @@ import SignIn from './components/SignIn';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import YouTubeUserInfo from './components/YoutubeUserInfo';
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
@@ -86,6 +87,7 @@ function App() {
     <div id='main'>
       <DashboardHeader setAccessToken={setAccessToken} />
       <div id="App">
+        <YouTubeUserInfo accessToken={accessToken} />
         <SummaryStats youtubeData={youtubeData} />
         <EarningsTable youtubeData={youtubeData} />
       </div>
