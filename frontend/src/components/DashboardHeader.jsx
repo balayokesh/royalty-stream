@@ -12,13 +12,6 @@ const username = "John Doe";
 const profilePic ="https://mui.com/static/images/avatar/1.jpg";
 
 // Formatters for currency and numbers with locale support
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-});
-const numberFormatter = new Intl.NumberFormat("en-US");
-
 function DashboardHeader(props) {
   return (
     <AppBar

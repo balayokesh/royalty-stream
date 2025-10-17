@@ -1,6 +1,4 @@
-import React from "react";
 import { Card, CardContent, Typography, Grid } from "@mui/material";
-import mockData from "../data/mockData.json";
 
 function SummaryStats(props) {
   const totalViews = props.youtubeData.reduce((sum, item) => sum + item.views, 0);
