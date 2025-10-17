@@ -1,12 +1,12 @@
 import './App.css'
-import EarningsTable from './components/EarningsTable'
-import SummaryStats from './components/SummaryStats'
-import DashboardHeader from './components/DashboardHeader'
-import SignIn from './components/SignIn';
+import DashboardHeader from './routes/youtube-components/DashboardHeader'
+import SignIn from './routes/youtube-components/SignIn';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-import YouTubeUserInfo from './components/YoutubeUserInfo';
+import Youtube from './routes/Youtube';
+import { Routes, Route } from "react-router-dom";
+import Home from './routes/Home';
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
@@ -86,11 +86,11 @@ function App() {
   return (
     <div id='main'>
       <DashboardHeader setAccessToken={setAccessToken} />
-      <div id="App">
-        <YouTubeUserInfo accessToken={accessToken} />
-        <SummaryStats youtubeData={youtubeData} />
-        <EarningsTable youtubeData={youtubeData} />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/youtube" element={<Youtube accessToken={accessToken} youtubeData={youtubeData} />} />
+        <Route path="/twitter" element={<div>Twitter Analytics Coming Soon!</div>} />
+      </Routes>
     </div>
   );
 }
